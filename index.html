@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact List</title>
+</head>
+<body>
+  <h1>Contact List</h1>
+
+  
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+      </tr>
+    </thead>
+    <tbody id="contactTableBody">
+     
+    </tbody>
+  </table>
+
+  
+  <h3>Add Contact</h3>
+  <form id="contactForm">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" required><br><br>
+
+    <label for="phone">Telefone:</label>
+    <input type="text" id="phone" required><br><br>
+
+    <button type="submit">Add</button>
+  </form>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+
+      const tableBody = document.getElementById('contactTableBody');
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `<td>${name}</td><td>${phone}</td>`;
+
+      tableBody.appendChild(newRow);
+
+
+      document.getElementById('name').value = '';
+      document.getElementById('phone').value = '';
+    });
+  </script>
+</body>
+</html>
